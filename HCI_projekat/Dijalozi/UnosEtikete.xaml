@@ -1,0 +1,60 @@
+﻿<Window x:Class="HCI_projekat.Unos.UnosEtikete"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas/xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:HCI_projekat.Unos"
+        xmlns:xctk1="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:validacija="clr-namespace:HCI_projekat.Validacija"
+        mc:Ignorable="d"
+        Title="Dodavanje nove etikete" Height="220" Width="400"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid>
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlLightLightColorKey}}"/>
+            </Grid.Background>
+            <Label Content="Oznaka:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="99" FontFamily="Calibri" FontSize="14"/>
+            <Label Content="Opis:" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="99" FontFamily="Calibri" FontSize="14" Height="46"/>
+            <TextBox x:Name="OznakaTxt" ToolTip="Obavezan unos oznake etikete" HorizontalAlignment="Left" Height="27" Margin="125,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Background="White">
+                <TextBox.Text>
+                    <Binding Path="Oznaka" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules  >
+
+                            <validacija:Validacija ValidatesOnTargetUpdated="True"  />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                            <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red" VerticalAlignment="Center" FontSize="22" FontWeight="Medium"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+            <TextBox x:Name="OpisTxt" ToolTip="Opcion unos opisa etikete" HorizontalAlignment="Left" Height="46" Margin="125,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227">
+                <TextBox.Text>
+                    <Binding Path="Opis" UpdateSourceTrigger="PropertyChanged"/>
+                </TextBox.Text>
+            </TextBox>
+
+            <Label x:Name="label" Content="Boja:" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Width="99" Height="27" FontFamily="Calibri" FontSize="14"/>
+            <xctk1:ColorPicker Name="ColorPicker" SelectedColor="{Binding Path=Boja, UpdateSourceTrigger=PropertyChanged}" IsTabStop="True" Margin="125,97,42,0" Height="26" VerticalAlignment="Top" DisplayColorAndName="True"/>
+            <Button x:Name="SacuvajButton" Cursor="Hand" Content="Sačuvaj" HorizontalAlignment="Left" Margin="155,144,0,0" VerticalAlignment="Top" Width="96" FontFamily="Calibri" Height="23" Click="Sacuvaj_Click"/>
+            <Button x:Name="OdustaniButton" Cursor="Hand" Content="Odustani" HorizontalAlignment="Left" Margin="256,144,0,0" VerticalAlignment="Top" Width="96" Height="23" FontFamily="Calibri" IsCancel="True" Click="Odustani_Click"/>
+            
+        </Grid>
+
+    </Grid>
+</Window>

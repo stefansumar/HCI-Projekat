@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<ArrayOfTip xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Tip>
+    <Oznaka>Mammalia</Oznaka>
+    <Naziv>Chordata</Naziv>
+    <Opis />
+    <Slika />
+  </Tip>
+  <Tip>
+    <Oznaka>Aves</Oznaka>
+    <Naziv>Chordata</Naziv>
+    <Opis />
+    <Slika />
+  </Tip>
+  <Tip>
+    <Oznaka>Reptilia</Oznaka>
+    <Naziv>Chordata</Naziv>
+    <Opis />
+    <Slika />
+  </Tip>
+</ArrayOfTip>

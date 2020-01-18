@@ -1,0 +1,32 @@
+﻿<Window x:Class="HCI_projekat.Dijalozi.PrikazVrsta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_projekat.Dijalozi"
+        mc:Ignorable="d"
+        Title="Prikaz vrsta" Height="440" Width="900"
+        ResizeMode="NoResize"
+        Closing="Izadji"
+        >
+    <Grid>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="256" Margin="10,74,0,0" VerticalAlignment="Top" Width="864"  IsSynchronizedWithCurrentItem="True" IsReadOnly="True">
+            <DataGrid.Columns>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button x:Name="button_Obrisi" Cursor="Hand" Content="Obriši" HorizontalAlignment="Left" Margin="679,354,0,0" VerticalAlignment="Top" Width="95" Height="25" FontFamily="Calibri" FontSize="14" Click="Button_Obrisi_Click"/>
+
+        <Button x:Name="button_Dodaj" Cursor="Hand" Content="Dodaj" HorizontalAlignment="Left" Margin="479,354,0,0" VerticalAlignment="Top" Width="95" Height="25" FontFamily="Calibri" FontSize="14" Click="DodajNovuVrstu_Click"/>
+        <Button x:Name="OdustaniButton" Cursor="Hand" Content="Zatvori" HorizontalAlignment="Left" Margin="779,354,0,0" VerticalAlignment="Top" Width="95" Height="25" FontFamily="Calibri" FontSize="14" Click="Odustani_Click"/>
+        <Button x:Name="IzmeniButton" Cursor="Hand" Content="Izmeni" HorizontalAlignment="Left" Margin="579,354,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="IzmeniButton_Click"/>
+        <GroupBox x:Name="groupBox" Header="Pretraga" HorizontalAlignment="Left" Height="59" Margin="10,10,0,0" VerticalAlignment="Top" Width="864" FontSize="13" >
+            <Label x:Name="label" Content="Pretraži po tipovima: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="25"/>
+
+        </GroupBox>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="25" Margin="169,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="TextBox_TextChanged" Text="{Binding UidFilter}"/>
+        <Button x:Name="OcistiPretraguButton" Content="Očisti pretragu" HorizontalAlignment="Left" Margin="374,35,0,0" VerticalAlignment="Top" Width="95" Height="25" FontSize="14" FontFamily="Calibri" Click="OcistiPretraguButton_Click"/>
+
+    </Grid>
+</Window>

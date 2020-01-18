@@ -1,0 +1,111 @@
+﻿<Window x:Class="HCI_projekat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:validacija="clr-namespace:HCI_projekat.Validacija"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="Ugrožene vrste sveta"
+        Height="640" 
+        Width="1350"
+        ResizeMode="NoResize"
+        Closing="IzadjiIzPrograma_Click">
+
+    <DockPanel>
+        <Menu DockPanel.Dock ="Top" Height="52">
+            <MenuItem Header="_Unos" Height="52" Width="75" FontFamily="Calibri" FontSize="20" >
+                <MenuItem Header="_Unos nove vrste" Height="25" Width="260" Click="UnosVrsteClick"></MenuItem>
+                <Separator/>
+                <MenuItem Header="_Unos novog tipa" Height="25" Width="260" Click="UnosTipaVrsteClick"></MenuItem>
+                <Separator/>
+                <MenuItem Header="_Unos nove etikete" Height="25" Width="260" Click="UnosEtiketeClick"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Prikaz" Height="50" Width="75" FontFamily="Calibri" FontSize="20">
+                <MenuItem Header="Prikaži sve vrste" HorizontalAlignment="Left" Height="25" Width="260" Click="PrikaziVrsteClick"/>
+                <Separator/>
+                <MenuItem Header="Prikaži sve tipove" HorizontalAlignment="Left" Height="25" Width="260" Click="PrikaziTipoveClick"/>
+                <Separator/>
+                <MenuItem Header="Prikaži sve etikete" HorizontalAlignment="Left" Height="25" Width="260" Click="PrikaziEtiketeClick"/>
+            </MenuItem>
+            <MenuItem Header="Čuvanje" Height="50" Width="75" FontFamily="Calibri" FontSize="20">
+                <MenuItem Header="Sačuvaj vrste" HorizontalAlignment="Left" Height="25" Width="260" Margin="0,0,-89,0" Click="SacuvajVrste_Button_Click"/>
+                <Separator/>
+                <MenuItem Header="Sačuvaj tipove" HorizontalAlignment="Left" Height="25" Width="260" Margin="0,0,-89,0" Click="SacuvajTipove_Button_Click"/>
+                <Separator/>
+                <MenuItem Header="Sačuvaj etikete" HorizontalAlignment="Left" Height="25" Width="260" Margin="0,0,-89,0" Click="SacuvajEtikete_Button_Click"/>
+            </MenuItem>
+            <MenuItem Header="Pomoć" Height="52" Width="75" FontFamily="Calibri" FontSize="20">
+                <MenuItem Header="Vidi pomoć" HorizontalAlignment="Left" Height="25" Width="260" Margin="0,0,-89,0"/>
+                <Separator/>
+                <MenuItem Header="O aplikaciji" HorizontalAlignment="Left" Height="25" Width="260"/>
+                <Separator/>
+                <MenuItem  x:Name="EtiketaTutorijalMI" Header="Tutorijal" HorizontalAlignment="Left" Height="25" Width="260" Click="EtiketaTutorijalMI_Click"/>
+
+            </MenuItem>
+        </Menu>
+        <Grid Margin="0,5,0,0" Width="1302">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="276">
+                </ColumnDefinition>
+                <ColumnDefinition Width="128">
+                </ColumnDefinition>
+                <ColumnDefinition Width="900"/>
+            </Grid.ColumnDefinitions>
+            <Canvas x:Name="canvasMap" HorizontalAlignment="Left" Height="484" Margin="0,15,0,0" VerticalAlignment="Top" Width="894" Grid.ColumnSpan="2" Grid.Column="1" AllowDrop="True" Drop="MapImageView_OnDrop" DragEnter="MapImageView_OnDragEnter">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="map.png"/>
+                </Canvas.Background>
+            </Canvas>
+            <Border BorderBrush="LightGray" BorderThickness="1" Grid.Column="1" HorizontalAlignment="Left" Height="0" Margin="0,10,0,0" VerticalAlignment="Top" Width="0"/>
+            <Button Content="Unos nove vrste" HorizontalAlignment="Left" Margin="788,41,0,0" VerticalAlignment="Top" Width="100" Height="35" Click="UnosVrsteClick" Grid.Column="2" Cursor="Hand"/>
+            <Button Content="Unos novog tipa" HorizontalAlignment="Left" Margin="788,81,0,0" VerticalAlignment="Top" Width="100" Height="35" Click="UnosTipaVrsteClick" Grid.Column="2" Cursor="Hand"/>
+            <Button Content="Unos nove etikete" HorizontalAlignment="Left" Margin="788,121,0,0" VerticalAlignment="Top" Width="100" Height="35" Click="UnosEtiketeClick" Grid.Column="2" Cursor="Hand"/>
+            <Separator HorizontalAlignment="Left" Height="18" Margin="788,161,0,0" VerticalAlignment="Top" Width="100" Grid.Column="2"/>
+            <Separator HorizontalAlignment="Left" Height="18" Margin="790,335,0,0" VerticalAlignment="Top" Width="100" Grid.Column="2"/>
+            <Button Content="Prikaz svih vrsta" HorizontalAlignment="Left" Margin="790,215,0,0" VerticalAlignment="Top" Width="100" Height="35" Click="PrikaziVrsteClick" Grid.Column="2" Cursor="Hand"/>
+            <Button Content="Prikaz svih tipova" HorizontalAlignment="Left" Margin="790,255,0,0" VerticalAlignment="Top" Width="100" Height="35" Click="PrikaziTipoveClick" Grid.Column="2" Cursor="Hand"/>
+            <Button Content="Prikaz svih etiketa" HorizontalAlignment="Left" Margin="790,295,0,0" VerticalAlignment="Top" Width="100" Height="35" Click="PrikaziEtiketeClick" Grid.Column="2" Cursor="Hand"/>
+            <Label x:Name="label" Content="Unos" Grid.Column="2" HorizontalAlignment="Left" Margin="790,10,0,0" VerticalAlignment="Top" Width="100"/>
+            <Label x:Name="label_Copy" Content="Prikaz" Grid.Column="2" HorizontalAlignment="Left" Margin="790,184,0,0" VerticalAlignment="Top" Width="100"/>
+            <Label x:Name="label1" Content="Čuvanje" Grid.Column="2" HorizontalAlignment="Left" Margin="790,353,0,0" VerticalAlignment="Top" Width="98"/>
+            <Button x:Name="SacuvajVrste_Button" Content="Sačuvaj vrste" Grid.Column="2" HorizontalAlignment="Left" Margin="790,384,0,0" VerticalAlignment="Top" Width="98" Height="35" Click="SacuvajVrste_Button_Click"/>
+            <Button x:Name="SacuvajTipove_Button" Content="Sačuvaj tipove" Grid.Column="2" HorizontalAlignment="Left" Margin="790,424,0,0" VerticalAlignment="Top" Width="98" Height="35" Click="SacuvajTipove_Button_Click"/>
+            <Button x:Name="SacuvajEtikete_Button" Content="Sačuvaj etikete" Grid.Column="2" HorizontalAlignment="Left" Margin="790,464,0,0" VerticalAlignment="Top" Width="98" Height="35" Click="SacuvajEtikete_Button_Click"/>
+            <ListView Name="listView" ToolTip="Držite levi klik na ikonici ugrožene vrste i prevucite na mapu. Za izmenu dva puta kliknite na vrstu." MouseDoubleClick="ListView_OnMouseDoubleClick" ItemsSource="{Binding Vrste, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="444" Margin="10,15,0,0" VerticalAlignment="Top" Width="243" SelectionChanged="ListView_SelectionChanged">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <EventSetter Event="PreviewKeyDown" Handler="EventSetter_OnHandler" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Ikonica" Width="60">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Cursor="Hand" MouseMove="Icon_OnMouseMove" PreviewMouseLeftButtonDown="Icon_OnPreviewMouseLeftButtonDown" Name="IconImg"  Width="30" Height="30" Source="{Binding Slika, UpdateSourceTrigger=PropertyChanged}"></Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Ime i oznaka">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical">
+                                        <Label Padding="5,0,5,0"  Content="{Binding Naziv, UpdateSourceTrigger=PropertyChanged}"></Label>
+                                        <Label Padding="5,0,5,5"  Foreground="Gray" FontStyle="Italic" FontSize="10" Content="{Binding Oznaka, UpdateSourceTrigger=PropertyChanged}"></Label>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Tip" Width="100" DisplayMemberBinding="{Binding Tip, UpdateSourceTrigger=PropertyChanged}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Label x:Name="label2" Content="Kako bi ste dodali dodatu životinju na mapu, pozicionirajte se na sliku životinje i prevucite na željeno mesto na mapi." Background="LightSteelBlue" HorizontalAlignment="Left" Margin="10,504,0,0" VerticalAlignment="Top" Width="1282" Grid.ColumnSpan="3"/>
+            <Button x:Name="obrisiButton" Content="Obriši vrstu" HorizontalAlignment="Left" Margin="80,464,0,0" VerticalAlignment="Top" Width="98" Height="35" Click="ObrisiButton_Click"/>
+
+
+
+
+
+
+        </Grid>
+    </DockPanel>
+</Window>

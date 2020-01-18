@@ -1,0 +1,2 @@
+Kada pokrenete projekat puci ce zbog putanje za serijalizaciju i deserijalizaciju!
+Kako biste ovo izbegli u MainWindow.xaml.cs postavite putanju tako da odgovara lokaciji gde ste sacuvali ovaj projekat

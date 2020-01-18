@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<ArrayOfEtiketa xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Etiketa>
+    <Oznaka>Tag2</Oznaka>
+    <Opis>Nema opisa.</Opis>
+    <Boja>
+      <A>255</A>
+      <R>30</R>
+      <G>144</G>
+      <B>255</B>
+      <ScA>1</ScA>
+      <ScR>0.0129830325</ScR>
+      <ScG>0.278894275</ScG>
+      <ScB>1</ScB>
+    </Boja>
+  </Etiketa>
+  <Etiketa>
+    <Oznaka>Tag4</Oznaka>
+    <Opis>Nema opisa.</Opis>
+    <Boja>
+      <A>255</A>
+      <R>255</R>
+      <G>255</G>
+      <B>0</B>
+      <ScA>1</ScA>
+      <ScR>1</ScR>
+      <ScG>1</ScG>
+      <ScB>0</ScB>
+    </Boja>
+  </Etiketa>
+  <Etiketa>
+    <Oznaka>Tag1</Oznaka>
+    <Opis>Nema opisa.</Opis>
+    <Boja>
+      <A>255</A>
+      <R>255</R>
+      <G>165</G>
+      <B>0</B>
+      <ScA>1</ScA>
+      <ScR>1</ScR>
+      <ScG>0.376262128</ScG>
+      <ScB>0</ScB>
+    </Boja>
+  </Etiketa>
+  <Etiketa>
+    <Oznaka>Tag3</Oznaka>
+    <Opis>Nema opisa.</Opis>
+    <Boja>
+      <A>255</A>
+      <R>0</R>
+      <G>128</G>
+      <B>0</B>
+      <ScA>1</ScA>
+      <ScR>0</ScR>
+      <ScG>0.2158605</ScG>
+      <ScB>0</ScB>
+    </Boja>
+  </Etiketa>
+  <Etiketa>
+    <Oznaka>Tag5</Oznaka>
+    <Opis>Nema opisa.</Opis>
+    <Boja>
+      <A>255</A>
+      <R>220</R>
+      <G>20</G>
+      <B>60</B>
+      <ScA>1</ScA>
+      <ScR>0.7156935</ScR>
+      <ScG>0.00699541</ScG>
+      <ScB>0.045186203</ScB>
+    </Boja>
+  </Etiketa>
+</ArrayOfEtiketa>

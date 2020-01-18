@@ -1,0 +1,32 @@
+﻿<Window x:Class="HCI_projekat.Dijalozi.PrikazTipova"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_projekat.Dijalozi"
+        mc:Ignorable="d"
+        Title="Prikaz tipova" Height="375" Width="600"
+        ResizeMode="NoResize">
+    <Grid>
+        <Button x:Name="button" Cursor="Hand" Content="Dodaj" HorizontalAlignment="Left" Margin="175,305,0,0" VerticalAlignment="Top" Width="95" Click="Button_Click" Height="25"/>
+        <Button x:Name="button1" Cursor="Hand" Content="Obrisi" HorizontalAlignment="Left" Margin="375,305,0,0" VerticalAlignment="Top" Width="95" Click="Button1_Click" Height="25"/>
+        <DataGrid x:Name="dataGrid" Cursor="Hand" HorizontalAlignment="Left" Height="290" Margin="10,10,0,0" VerticalAlignment="Top" Width="560"  IsReadOnly="True">
+            <DataGrid.Columns>
+
+            </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+
+                <DataTemplate>
+                    <DockPanel Background="Honeydew">
+                        <Image DockPanel.Dock="Left" Height="80"  Source="{Binding Path=Slika}"/>
+
+                    </DockPanel>
+
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
+        <Button x:Name="ZatvoriButton" Cursor="Hand" Content="Zatvori" HorizontalAlignment="Left" Margin="475,305,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="ZatvoriButton_Click"/>
+        <Button x:Name="IzmeniButton" Cursor="Hand" Content="Izmeni" HorizontalAlignment="Left" Margin="275,305,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="IzmeniButton_Click"/>
+
+    </Grid>
+</Window>

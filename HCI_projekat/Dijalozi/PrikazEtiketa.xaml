@@ -1,0 +1,40 @@
+﻿<Window x:Class="HCI_projekat.Dijalozi.PrikazEtiketa"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_projekat.Dijalozi"
+        mc:Ignorable="d"
+        Title="Prikaz etiketa" Height="300" Width="600"
+        ResizeMode="NoResize">
+    <Grid>
+        <DataGrid x:Name="dataGrid" ItemsSource="{Binding Path=Etikete, UpdateSourceTrigger=PropertyChanged}" Cursor="Hand" HorizontalAlignment="Left" Height="211" Margin="10,10,0,0" VerticalAlignment="Top" Width="564" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Oznaka" Binding="{Binding Oznaka, UpdateSourceTrigger=PropertyChanged}" Width="4*" />
+                <DataGridTextColumn Header="Opis" Binding="{Binding Opis, UpdateSourceTrigger=PropertyChanged}" Width="4*" />
+                <DataGridTemplateColumn Header="Boja" Width="4*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="4*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Grid.Column="0">
+                                    <Rectangle.Fill>
+                                        <SolidColorBrush Color="{Binding Boja}" />
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="ZatvoriButton" Cursor="Hand" Content="Zatvori" HorizontalAlignment="Left" Margin="479,226,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="ZatvoriButton_Click"/>
+        <Button x:Name="ObrisiButton" Cursor="Hand" Content="Obriši" HorizontalAlignment="Left" Margin="379,226,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="ObrisiButton_Click"/>
+        <Button x:Name="DodajButton" Cursor="Hand" Content="Dodaj" HorizontalAlignment="Left" Margin="179,226,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="DodajButton_Click"/>
+        <Button x:Name="IzmeniButton" Content="Izmeni" HorizontalAlignment="Left" Margin="279,226,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="IzmeniButton_Click"/>
+
+    </Grid>
+</Window>
