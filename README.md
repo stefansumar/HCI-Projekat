@@ -1,4 +1,4 @@
 # Interakcija čovek računar - Projekat
 
 
-Desktop (WPF) aplikacija za vođenje evidencije ugroženih vrsta životinja sveta.
+Desktop (WPF) aplikacija za vođenje evidencije ugroženih životinjskih vrsta.
